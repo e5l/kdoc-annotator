@@ -7,4 +7,3 @@ Add a feedback link to all KDocs in your project.
 ```shell
 ./gradlew run --args="path/to/project link"
 ```
-

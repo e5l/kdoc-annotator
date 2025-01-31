@@ -30,7 +30,7 @@ fun traversePublicApi(declarations: List<KtDeclaration>, name: String, block: (K
         val fqname = "$name.${declaration.name}"
         block(declaration, fqname)
 
-        if (declaration !is KtDeclarationContainer) return
+        if (declaration !is KtDeclarationContainer) continue
 
         traversePublicApi(declaration.declarations, fqname, block)
     }
