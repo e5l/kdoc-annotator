@@ -44,5 +44,7 @@ fun KDocUpdater.updateKDoc(declaration: KtDeclaration, fqname: String) {
 
     if (kdoc.text.contains(fqname)) return
 
-    collectForUpdate(kdoc.startOffset, kdoc.endOffset, fqname)
+    collectForUpdate(kdoc.startOffset, kdoc.endOffset, "$fqname:${declaration.lineNumber}")
 }
+
+val KtDeclaration.lineNumber: Int get() = containingFile.text.substring(0, startOffset).count { it == '\n' } + 1
